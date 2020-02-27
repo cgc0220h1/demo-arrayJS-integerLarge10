@@ -1,6 +1,7 @@
 let demoArr = [];
 
 function calculate() {
+    demoArr = [];
     let count = 0;
     let display = [];
     addNumber();
@@ -10,13 +11,18 @@ function calculate() {
             count++;
         }
    }
-   alert("Có " + count + " số nguyên lớn hơn 10: " + demoArr.join(','));
+   alert("Có " + count + " số nguyên lớn hơn 10: " + display.join(','));
 }
 
 function addNumber() {
     let num;
-    for (let i = 1; i <= 10; i++) {
-        num = prompt("Nhập phần tử thứ: " + i);
-        demoArr.push(num);
+    for (let i = 1; i <= 10;) {
+        num = +prompt("Nhập số thứ: " + i);
+        if (Number.isInteger(num)) {
+            demoArr.push(num);
+            i++;
+        } else {
+            num = +prompt("Xin nhập lại");
+        }
     }
 }
